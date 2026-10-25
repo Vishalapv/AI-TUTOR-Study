@@ -1,0 +1,373 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ==========================================================================
+     Theme "Bright" (DEFAULT, light)
+     Mood: bright, airy, rounded, friendly, confident; soft shadows,
+     generous whitespace, one strong brand color (indigo), calm backgrounds.
+     ========================================================================== */
+  --bg-app: #F6F8FF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #EEF2FF;
+  --bg-surface-raised: #EEF2FF;
+  --bg-card: #FFFFFF;
+  --border-subtle: #DDE3F5;
+  --border-strong: #CBD5E1;
+  --shadow-card: 0 8px 24px rgba(79, 70, 229, 0.08);
+
+  --text-primary: #1B2340;
+  --text-secondary: #5A6485;
+  --text-muted: #5A6485;
+  --text-on-primary: #FFFFFF;
+
+  /* Brand primary: indigo */
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --primary-soft: #E0E7FF;
+  --accent-primary: #4F46E5;
+  --accent-hover: #4338CA;
+  --accent-text: #FFFFFF;
+
+  /* Secondary violet & accents */
+  --secondary-violet: #7C3AED;
+  --violet-soft: #EDE9FE;
+  --accent-teal: #0D9488;
+  --teal-soft: #CCFBF1;
+  --sky: #0284C7;
+  --sky-soft: #E0F2FE;
+
+  /* Status tokens */
+  --success: #15803D;
+  --success-soft: #DCFCE7;
+  --teal-success: #15803D;
+  --warning: #B45309;
+  --warning-soft: #FEF3C7;
+  --error: #BE123C;
+  --error-soft: #FFE4E6;
+  --rose-danger: #BE123C;
+
+  /* Focus & Gaze Dwell */
+  --focus-ring: #1D4ED8;
+  --dwell-ring: #F59E0B; /* Dwell ring is the only place amber is strong */
+  --brand-gradient: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+
+  --font-family-current: var(--font-lexend), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --card-radius: 20px;
+  --button-radius: 20px;
+}
+
+/* Explicit Bright Theme */
+html[data-theme="bright"],
+html[data-theme="light"],
+body.theme-bright,
+body.theme-light {
+  --bg-app: #F6F8FF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #EEF2FF;
+  --bg-surface-raised: #EEF2FF;
+  --bg-card: #FFFFFF;
+  --border-subtle: #DDE3F5;
+  --border-strong: #CBD5E1;
+  --shadow-card: 0 8px 24px rgba(79, 70, 229, 0.08);
+
+  --text-primary: #1B2340;
+  --text-secondary: #5A6485;
+  --text-muted: #5A6485;
+  --text-on-primary: #FFFFFF;
+
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --primary-soft: #E0E7FF;
+  --accent-primary: #4F46E5;
+  --accent-hover: #4338CA;
+  --accent-text: #FFFFFF;
+
+  --secondary-violet: #7C3AED;
+  --violet-soft: #EDE9FE;
+  --accent-teal: #0D9488;
+  --teal-soft: #CCFBF1;
+  --sky: #0284C7;
+  --sky-soft: #E0F2FE;
+
+  --success: #15803D;
+  --success-soft: #DCFCE7;
+  --teal-success: #15803D;
+  --warning: #B45309;
+  --warning-soft: #FEF3C7;
+  --error: #BE123C;
+  --error-soft: #FFE4E6;
+  --rose-danger: #BE123C;
+
+  --focus-ring: #1D4ED8;
+  --dwell-ring: #F59E0B;
+  --brand-gradient: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+}
+
+/* Calm Night Theme (Dark Option) */
+html[data-theme="calm-night"],
+html[data-theme="calm"],
+body.theme-calm-night,
+body.theme-calm {
+  --bg-app: #0F1226;
+  --bg-surface: #181C3A;
+  --bg-surface-2: #20254A;
+  --bg-surface-raised: #20254A;
+  --bg-card: #181C3A;
+  --border-subtle: #2E345F;
+  --border-strong: #3F477D;
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  --text-primary: #EEF1FF;
+  --text-secondary: #A9B0D6;
+  --text-muted: #A9B0D6;
+  --text-on-primary: #0B1030;
+
+  --primary: #818CF8;
+  --primary-hover: #6366F1;
+  --primary-soft: #1E234F;
+  --accent-primary: #818CF8;
+  --accent-hover: #6366F1;
+  --accent-text: #0B1030;
+
+  --secondary-violet: #A78BFA;
+  --violet-soft: #2E2559;
+  --accent-teal: #2DD4BF;
+  --teal-soft: #133E3B;
+  --sky: #38BDF8;
+  --sky-soft: #13334F;
+
+  --success: #4ADE80;
+  --success-soft: #133A26;
+  --teal-success: #4ADE80;
+  --warning: #FBBF24;
+  --warning-soft: #3D2E14;
+  --error: #FB7185;
+  --error-soft: #3D1722;
+  --rose-danger: #FB7185;
+
+  --focus-ring: #93C5FD;
+  --dwell-ring: #FBBF24;
+  --brand-gradient: linear-gradient(135deg, #818CF8 0%, #A78BFA 100%);
+}
+
+/* High Contrast Theme */
+html[data-theme="high-contrast"],
+html.high-contrast,
+body.theme-high-contrast {
+  --bg-app: #000000;
+  --bg-surface: #0A0A0A;
+  --bg-surface-2: #141414;
+  --bg-surface-raised: #141414;
+  --bg-card: #0A0A0A;
+  --border-subtle: #FFFFFF;
+  --border-strong: #FFFFFF;
+  --shadow-card: none;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #FFFFFF;
+  --text-muted: #E2E8F0;
+  --text-on-primary: #000000;
+
+  --primary: #FFFFFF;
+  --primary-hover: #E2E8F0;
+  --primary-soft: #262626;
+  --accent-primary: #FFFFFF;
+  --accent-hover: #E2E8F0;
+  --accent-text: #000000;
+
+  --secondary-violet: #FFFFFF;
+  --violet-soft: #262626;
+  --accent-teal: #FFFFFF;
+  --teal-soft: #262626;
+  --sky: #FFFFFF;
+  --sky-soft: #262626;
+
+  --success: #FFFFFF;
+  --success-soft: #262626;
+  --teal-success: #FFFFFF;
+  --warning: #FFFFFF;
+  --warning-soft: #262626;
+  --error: #FFFFFF;
+  --error-soft: #262626;
+  --rose-danger: #FFFFFF;
+
+  --focus-ring: #00E5FF;
+  --dwell-ring: #FFD400;
+  --brand-gradient: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 100%);
+}
+
+/* Typography Choices */
+html[data-font="lexend"],
+body.font-lexend {
+  --font-family-current: var(--font-lexend), system-ui, sans-serif;
+}
+
+html[data-font="atkinson"],
+body.font-atkinson {
+  --font-family-current: var(--font-atkinson), system-ui, sans-serif;
+}
+
+html[data-font="opendyslexic"],
+body.font-opendyslexic {
+  --font-family-current: 'OpenDyslexic', system-ui, sans-serif;
+}
+
+/* Text Size Stepping */
+html[data-text-size="100%"] {
+  font-size: 100%;
+}
+html[data-text-size="125%"],
+html.large-text {
+  font-size: 125%;
+}
+html[data-text-size="150%"] {
+  font-size: 150%;
+}
+
+/* Line Spacing */
+html[data-line-spacing="relaxed"] body {
+  line-height: 1.8;
+}
+html[data-line-spacing="loose"] body {
+  line-height: 2.1;
+}
+
+/* Letter Spacing */
+html[data-letter-spacing="wide"] body {
+  letter-spacing: 0.04em;
+}
+
+/* Global App Shell & Stability Constraints */
+html,
+body {
+  height: 100dvh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-family-current);
+  user-select: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Root Application Grid: slim top bar (64px), main area (1fr), bottom dock (112px) */
+.app-grid-shell {
+  height: 100dvh;
+  max-height: 100dvh;
+  width: 100vw;
+  max-width: 100vw;
+  overflow: clip;
+  display: grid;
+  grid-template-rows: 64px 1fr 112px;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Brand gradient helper */
+.bg-brand-gradient {
+  background: var(--brand-gradient) !important;
+}
+
+/* Subtle decorative background shapes (hidden in focus mode & high contrast) */
+.bg-ambient-blob {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+  transition: opacity 200ms ease;
+}
+
+html.high-contrast .bg-ambient-blob,
+html[data-theme="high-contrast"] .bg-ambient-blob,
+.focus-mode-active .bg-ambient-blob {
+  display: none !important;
+}
+
+/* Dedicated Inner Scroll Containers */
+.stable-scroll-region {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  overflow-anchor: auto;
+  scrollbar-gutter: stable;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Custom scrollbar that doesn't cause shift */
+.stable-scroll-region::-webkit-scrollbar {
+  width: 8px;
+}
+.stable-scroll-region::-webkit-scrollbar-track {
+  background: transparent;
+}
+.stable-scroll-region::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+.stable-scroll-region::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* High-contrast element borders and text */
+html.high-contrast button,
+html[data-theme="high-contrast"] button {
+  border-width: 2px !important;
+}
+
+/* Reduced Motion Constraints */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html.reduced-motion *,
+html.reduced-motion *::before,
+html.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Calm fade transitions (150-200ms) */
+.calm-fade {
+  transition: opacity 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 1.8s ease-in-out infinite;
+}
+
+/* Focus outline for keyboard navigation */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}

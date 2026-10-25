@@ -1,0 +1,78 @@
+# Environments & Secrets
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+.npm
+*.tsbuildinfo
+next-env.d.ts
+
+# Data & Storage
+data/raw/**
+!data/raw/
+!data/raw/*/
+!data/raw/**/.gitkeep
+data/processed/**
+!data/processed/
+!data/processed/*/
+!data/processed/**/.gitkeep
+data/index/
+data/index/**
+data/eval/gold_set.yaml
+data/eval/gold_set.*.yaml
+data/eval/gold_set.draft*.yaml
+data/eval/results/
+data/eval/results/**
+data/eval/gaze/
+data/eval/gaze/**
+data/eval/templates/
+data/**/*.pdf
+*.pdf
+data/*.draft.yaml
+data/manifest.draft.yaml
+data/*.jsonl
+data/download_log.jsonl
+chroma/
+chroma_db/
+.chroma/
+chroma_data/
+
+# Machine Learning Models & Task Binaries
+frontend/public/models/*
+!frontend/public/models/.gitkeep
+*.task
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Playwright Test Artifacts
+test-results/
+playwright-report/
+blob-report/
